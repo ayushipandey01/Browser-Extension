@@ -1,5 +1,7 @@
 import { useBrowser } from '../../context/browser-context';
 import './home.css';
+import { Footer } from '../../components/Footer/Footer'
+import { Weather } from '../../components/Weather/Weather'
 export function Home() {
 
   const {name , browserDispatch} = useBrowser();
@@ -28,6 +30,8 @@ export function Home() {
                 <input required className="input" onKeyPress={handleNameChange}/>
             </form>
         </div>
+        <Weather />
+        <Footer />
     </div>    
   )
 }

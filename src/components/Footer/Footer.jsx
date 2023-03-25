@@ -11,11 +11,11 @@ export const Footer = () => {
           <span role="img" aria-label="Love">
             ❤️
           </span>{" "}
-          by Prakash Sakari
+          by Ayushi Pandey
         </p>
         <div class="d-flex gap align-center padding-all-16">
           <a
-            href="https://github.com/prakashsakari/"
+            href="https://github.com/ayushipandey01/"
             class="link"
             target="_blank"
             rel="noreferrer"
@@ -26,7 +26,7 @@ export const Footer = () => {
               alt="GitHub"
             />
           </a>
-          <a
+          {/* <a
             href="https://twitter.com/prakashsakari"
             class="link"
             target="_blank"
@@ -37,9 +37,9 @@ export const Footer = () => {
               src={twitter}
               alt="Twitter"
             />
-          </a>
+          </a> */}
           <a
-            href="https://www.linkedin.com/in/prakashsakari/"
+            href="https://www.linkedin.com/in/ayushi-pandey-1a4775149/"
             class="link"
             target="_blank"
             rel="noreferrer"

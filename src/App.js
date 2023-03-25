@@ -23,8 +23,7 @@ function App() {
     <div className='app' style={{backgroundImage: `url("${bgImage}")`}}>
       {
         name ? <Task /> : < Home />
-      }
-                   
+      }            
     </div>    
   );
 }

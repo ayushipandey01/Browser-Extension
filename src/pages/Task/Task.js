@@ -3,11 +3,14 @@ import { useBrowser } from "../../context/browser-context";
 import { Fragment, useEffect, useState } from "react";
 import { quotes } from '../../db/quotes';
 import { Todo } from '../../components/Todo/Todo';
+import { Weather } from '../../components/Weather/Weather';
 
 const index = Math.floor(Math.random() * quotes.length);
 const quote = quotes[index].quote;
 
 export const Task = () => {
+
+    var _date = new Date().getDate();
 
     const {browserDispatch , time , message , name ,task} = useBrowser();
 
@@ -21,12 +24,13 @@ export const Task = () => {
             type: "TASK",
             payload : userTask
         });
+
         if(new Date().getDate() !== Number(localStorage.getItem("date"))){
             localStorage.removeItem("task");
             localStorage.removeItem("date");
             localStorage.removeItem("checkedStatus");
         }
-    })
+    },[])
 
     useEffect(()=>{
         const checkStatus = localStorage.getItem("checkedStatus");
@@ -65,7 +69,7 @@ export const Task = () => {
                 payload: event.target.value
             });
             localStorage.setItem("task" , event.target.value);
-            localStorage.setItem("date" , new Date.getDate());
+            localStorage.setItem("date" , _date);
         }
     }
 
@@ -129,7 +133,8 @@ export const Task = () => {
             {isTodoOpen && <Todo />}  
             <div className="todo-btn-container absolute">
                 <button className="button cursor todo-btn" onClick={handleTodoClick}>ToDo</button>
-            </div>      
+            </div>  
+            <Weather />    
         </div>
     )
 }
