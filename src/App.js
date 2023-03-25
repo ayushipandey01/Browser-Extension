@@ -1,28 +1,31 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import './App.css';
-import { Home, Task } from "./pages";
-import {images} from "./db";
-import { useBrowser } from "./context/browser-context";
+import { BrowserProvider, useBrowser } from './context/browser-context';
+import { images } from './db/images';
+import { Home , Task} from './pages';
+
+const index = Math.floor(Math.random() * 21);
+const bgImage = images[index].image;
 
 function App() {
-  const { name, browserDispatch } = useBrowser();
 
-  const [backgroundImage, setBackgroundImage] = useState("");
-  useEffect(() => {
-    const bgImage = images[Math.floor(Math.random() * images.length)].image;
-    setBackgroundImage(bgImage);
-    const name = localStorage.getItem("userName");
+  const {name , browserDispatch} = useBrowser();
+
+  useEffect(()=>{
+    const userName = localStorage.getItem("name");
     browserDispatch({
-      type: "USER_NAME",
-      payload: name
-    });
-  }, [])
+      type: "NAME",
+      payload: userName
+    })
+  },[])
 
-  
   return (
-    <div className='app' style={{backgroundImage: `url("${backgroundImage}")`}}>
-      {name ? <Task /> : <Home />}
-    </div>
+    <div className='app' style={{backgroundImage: `url("${bgImage}")`}}>
+      {
+        name ? <Task /> : < Home />
+      }
+                   
+    </div>    
   );
 }
 

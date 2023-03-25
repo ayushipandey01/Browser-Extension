@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
 
 :root {
   --text-color-primary: #f8fafc;
@@ -10,7 +10,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 body {
@@ -74,8 +74,13 @@ body {
   gap: 1.25rem;
 }
 
+.lg-gap{
+  gap:8rem;
+}
+
+
 .gap-small {
-  gap: 8px
+  gap: 10px
 }
 
 .relative {
@@ -122,18 +127,17 @@ body {
   padding: 8px;
 }
 
-.heading-1 {
-  font-size: 3rem;
-  line-height: 4rem;
+.heading-1{
+    font-size: 6rem;
 }
 
 .heading-2 {
-  font-size: 2rem;
+  font-size: 4rem;
   line-height: 2.5rem;
 }
 
 .heading-3 {
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 2rem;
 }
 
@@ -146,3 +150,8 @@ body {
   font-size: 8px;
   line-height: 1rem;
 }
+
+.cursor:hover{
+  cursor: pointer;
+}
+

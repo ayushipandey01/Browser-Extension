@@ -1,40 +1,25 @@
-import { createContext, useContext, useReducer } from "react";
-import { browserReducer } from "../reducer/browserReducer";
+import { createContext , useContext, useReducer } from "react";
+import { browserReducer } from "../reducer/browser-reducer";
 
-const BrowserContext = createContext();
-
-const BrowserProvider = ({ children }) => {
-  const [
-    { time, name, task, message, textQuote, isFlag, isTaskAdded },
-    browserDispatch
-  ] = useReducer(browserReducer, {
-    time: "",
+const initialValue = {
     name: "",
-    task: "",
+    time:"",
     message: "",
-    textQuote: "",
-    isFlag: false,
-    isTaskAdded: false
-  });
+    task : null
+}
 
-  return (
-    <BrowserContext.Provider
-      value={{
-        time,
-        name,
-        task,
-        message,
-        textQuote,
-        isFlag,
-        isTaskAdded,
-        browserDispatch
-      }}
-    >
-      {children}
-    </BrowserContext.Provider>
-  );
-};
+const BrowserContext = createContext(initialValue);
+
+const BrowserProvider = ({children}) => {
+
+    const [{name , time , message,task} , browserDispatch] = useReducer(browserReducer , initialValue);
+    return(
+        <BrowserContext.Provider value={{name , time, message , task ,browserDispatch}}>
+            {children}
+        </BrowserContext.Provider>
+    )
+}
 
 const useBrowser = () => useContext(BrowserContext);
 
-export { useBrowser, BrowserProvider };
+export { useBrowser, BrowserProvider }

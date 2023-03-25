@@ -1,64 +1,54 @@
-.todo-container {
-    width: 20vw;
+.todo-container{
+    width: 21vw;
     max-height: 50vh;
     overflow-y: auto;
-    background-color: var(--todo-background);
+    background-color: blueviolet;
     opacity: .9;
-    right: 2rem;
-    bottom: 6rem;
-    padding: 1rem;
     border-radius: 4px;
+    padding: 2rem;
+    right: 2rem;
+    bottom:7.5rem;
 }
 
-.todo-input:focus {
-    outline: none;
-    border-bottom: 1px solid;
-}
-
-.todo-input {
+.todo-input{
     background-color: transparent;
     border: none;
     color: var(--text-color-primary);
     border-bottom: 1px solid var(--text-color-primary);
-    margin-bottom: .5rem;
-    font-size: 1rem;
+    padding-top: 0rem;
+    margin-bottom: 8px;
+    font-size: 1.25rem;
     width: 17vw;
 }
 
-.todo-items {
-    padding: .15rem 0;
+.todo-input:focus{
+    outline: none;
+}
+
+.todo-items{
+    margin-top: 1.5rem;
+    padding: 8px 0;
     width: 16vw;
-    align-items: flex-start;
 }
 
 .todo-label{
+    padding-bottom: 0rem;
     min-width: 100%;
     word-wrap: break-word;
     font-size: 1.25rem;
 }
 
-.checkbox {
-    margin-right: 8px;
+.todo-check{
+    width: 1.25rem;
+    height: 1.25rem;
 }
 
-  
-.strike {
-    text-decoration: line-through;
-}
+/* .todo-list{
+    padding-bottom: 1rem;
+    margin: 0px;
+} */
 
-.close-btn {
-    font-size: 1rem;
-}
-
-
-::-webkit-scrollbar {
-    width: 4px;
-}
-  
-::-webkit-scrollbar-track {
-    background: var(--text-color-primary);
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color);
+.todo-clear-btn{
+    font-size: 1.25rem;
+    margin-left: auto;
 }

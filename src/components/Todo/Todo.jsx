@@ -1,90 +1,66 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import { v4 as uuid } from "uuid";
-import { useState, useEffect } from "react";
-import "./Todo.css";
+import './Todo.css';
 
 export const Todo = () => {
-    const [todo, setTodo] = useState("");
-    const [todoList, setTodoList] = useState([]);
 
-    const handleChange = (event) => {
-        setTodo(event.target.value);
-    };
+  const [todo ,setTodo] = useState();
+  const [todoList , setTodoList] = useState([]);
 
-    const handleKeyPress = (event) => {
-        if (event.key === "Enter") {
-        const updatedList = [
-            ...todoList,
-            { _id: uuid(), myTodo: todo, isCompleted: false }
-        ]
-        setTodoList(updatedList);
-        setTodo("");
-        localStorage.setItem("todolist", JSON.stringify(updatedList));
-        }
-    };
+  useEffect(()=>{
+    const userTodo = JSON.parse(localStorage.getItem("todo"));
+    userTodo && setTodoList(userTodo);
+  },[])
 
-    const handleTodoChange = (todoId) => {
-        const updatedList = todoList.map((todoItem) =>
-        todoItem._id === todoId
-        ? { ...todoItem, isCompleted: !todoItem.isCompleted }
-        : todoItem
-    )
-        setTodoList(updatedList);
-        localStorage.setItem("todolist", JSON.stringify(updatedList));
-    };
+  const handleTodoInputChange = (event)=>{
+    setTodo(event.target.value)
+  }
 
-    const handleTodoDeleteClick = (todoId) => {
-        const filteredList = todoList.filter(({_id}) => _id !== todoId)
-        setTodoList(filteredList);
-        localStorage.setItem("todolist", JSON.stringify(filteredList));
+  const handleTodoEnterKey =(event)=>{
+    if(event.key === "Enter"){
+      const updatedTodoList = [...todoList,{_id: uuid(), todo, isCompleted : false}];
+      setTodoList(updatedTodoList);
+      setTodo("");
+      localStorage.setItem("todo", JSON.stringify(updatedTodoList));
     }
+    console.log(todoList);
+  }
 
-    useEffect(() => {
-        const todos = JSON.parse(localStorage.getItem("todolist"));
-        todos && setTodoList(todos);
-    }, [])
+  const handleTodoCheckChange = (todoId)=>{
+    const updatedTodoList = todoList.map(todo => todoId === todo._id ? {...todo,isCompleted: !todo.isCompleted} : todo)
+    setTodoList(updatedTodoList);
+    localStorage.setItem("todo" , JSON.stringify(updatedTodoList));
+  }
 
-    return (
+  const handleTodoDeleteClick =(todoId)=>{
+    const updatedTodoList = todoList.filter(({_id}) => _id !== todoId);
+    setTodoList(updatedTodoList);
+    localStorage.setItem("todo" , JSON.stringify(updatedTodoList));
+  }
+
+  return (
     <div className="todo-container absolute">
-      <div className="todo-input-container">
-        <input
-          value={todo}
-          onChange={handleChange}
-          className="todo-input"
-          placeholder="add todo here..."
-          onKeyPress={handleKeyPress}
-        />
+      <div className="todo-input-container absolute">
+        <input value ={todo} className = "todo-input" onChange={handleTodoInputChange} onKeyPress={handleTodoEnterKey}/>
       </div>
+
       <div className="todo-list">
-        {todoList &&
-          todoList.map(({ myTodo, _id, isCompleted }) => {
-            return (
-              <div key={_id} className="todo-items d-flex">
-                  <div className="todo-label">
-                  <input
-                    id={_id}
-                    className="checkbox"
-                    checked={isCompleted}
-                    type="checkbox"
-                    onChange={() => handleTodoChange(_id)}
-                  />
-                  <label
-                for={_id}
-                className={`${isCompleted ? "strike" : ""} todo-label`}
-                >
-                  {myTodo}
-                </label>
-                  </div>
-                
-                <div>
-                <span class="close-btn material-icons-outlined cursor" onClick={() => handleTodoDeleteClick(_id)}>
-                    close
-                </span>
-                </div>
-                
+        {
+          todoList && todoList.map(({todo , _id , isCompleted}) =>{
+            return(
+              <div key={_id} className="todo-items d-flex align-center">
+                <label className={`${isCompleted ? "strike-through" : ""} todo-label`}> <input className ="todo-check" type="checkbox" onChange={()=> handleTodoCheckChange(_id)} checked = {isCompleted}/> {todo}</label>
+                <button className="button cursor todo-clear-btn" onClick={()=> handleTodoDeleteClick(_id)}>
+                        <span class="material-icons-outlined">
+                            delete
+                        </span>
+                </button>
               </div>
-            );
-          })}
+            )
+          })
+        }
       </div>
     </div>
-    )
+  )
 }
