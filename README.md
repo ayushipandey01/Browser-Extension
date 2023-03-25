@@ -21,11 +21,9 @@ Task Page
 
 ## Author
 
--   Prakash Sakari - follow me on 👇
--   [GitHub](https://www.github.com/prakashsakari)
--   [LinkedIn](https://www.linkedin.com/in/prakashsakari/)
--   [Twitter](https://twitter.com/prakashsakari)
-
+-   Ayushi Pandey - follow me on 👇
+-   [GitHub](https://github.com/ayushipandey01)
+-   [LinkedIn](https://www.linkedin.com/in/ayushi-pandey-1a4775149)
 
 ## Live Link
 
