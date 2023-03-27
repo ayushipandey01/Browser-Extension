@@ -28,11 +28,11 @@ Task Page
 
 ## Live Link
 
-https://extensry.netlify.app/
+https://todo-list-browser-extension.netlify.app/
 
 ## Add Extension to Firefox
 
-https://addons.mozilla.org/en-US/firefox/addon/prakash-extensry/
+https://addons.mozilla.org/en-US/firefox/addon/ayushi-browser-extension/
 
 
 ## Run Locally
@@ -41,7 +41,7 @@ Clone the project by adding the following command in the terminal.
 Make sure your have git installed and added to path.
 
 ```bash
-  git clone https://github.com/prakashsakari/extensry.git
+  git clone https://github.com/ayushipandey01/Browser-Extension.git
 ```
 
 Go to the project directory
