@@ -37,7 +37,7 @@ export const Weather = () => {
             location.longitude
           )}&appid=${"de134159c8817db45dddd8d164dbaf2c"}&units=metric`
         );
-        console.log("Weather -", temp, name, weather[0].description);
+        // console.log("Weather -", temp, name, weather[0].description);
         setLocation((location) => ({
           ...location,
           temperature: temp.toFixed(0),
@@ -45,7 +45,6 @@ export const Weather = () => {
           skyStatus: weather
         }));
       } catch (error) {
-        console.log("Error -", error);
       }
     })();
   }, [location.latitude, location.longitude]);

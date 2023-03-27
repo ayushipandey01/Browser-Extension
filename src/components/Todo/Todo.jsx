@@ -24,7 +24,6 @@ export const Todo = () => {
       setTodo("");
       localStorage.setItem("todo", JSON.stringify(updatedTodoList));
     }
-    console.log(todoList);
   }
 
   const handleTodoCheckChange = (todoId)=>{
@@ -41,8 +40,8 @@ export const Todo = () => {
 
   return (
     <div className="todo-container absolute">
-      <div className="todo-input-container absolute">
-        <input value ={todo} className = "todo-input" onChange={handleTodoInputChange} onKeyPress={handleTodoEnterKey}/>
+      <div className="todo-input-container">
+        <input value ={todo} className = "todo-input" onChange={handleTodoInputChange} onKeyPress={handleTodoEnterKey} placeholder = "add a todo here ...."/>
       </div>
 
       <div className="todo-list">
