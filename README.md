@@ -67,8 +67,8 @@ Start the server
 https://user-images.githubusercontent.com/80476561/169452669-ff9a32dc-d951-45bf-b7b9-dffd238666fe.mp4
 
 ## Screenshot
-![img1](https://user-images.githubusercontent.com/80476561/169453820-1cf458a1-87ca-4053-9935-86dbbb2a3bf4.png)
-![img2](image.png)
+![img1](https://user-images.githubusercontent.com/40225444/228015534-fc1707f4-b392-4b62-988f-df51e001f6d8.png)
+![img2](https://user-images.githubusercontent.com/40225444/228015745-2a25ed8d-6c95-41c2-b818-08b16dc19067.png)
 
 
 
