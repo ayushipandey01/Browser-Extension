@@ -17,6 +17,7 @@ Task Page
 ## Tech Stack
 
 - HTML/CSS
+- Javascript
 - ReactJs
 
 ## Author
