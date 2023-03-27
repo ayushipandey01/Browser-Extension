@@ -43,12 +43,12 @@ Make sure your have git installed and added to path.
 ```bash
   git clone https://github.com/ayushipandey01/Browser-Extension.git
 ```
-
+<!-- 
 Go to the project directory
 
 ```bash
   cd extensry
-```
+``` -->
 
 Install dependencies
 
